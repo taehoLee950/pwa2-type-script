@@ -1,0 +1,28 @@
+{
+  "include": ["src"], // 컴파일 대상 파일들의 위치를 src 폴더로 제한함.
+
+  "compilerOptions": {
+    "target": "es6", // 변환될 자바스크립트의 버전을 설정함 (ES6 표준으로 변환됨).
+    "module": "esnext", // 최신 자바스크립트 모듈 시스템(import/export)을 사용함.
+    "outDir": "./dist", // 변환된 자바스크립트 파일들이 저장될 폴더 경로임.
+    "strict": true, // 타입스크립트의 모든 엄격한 검사 옵션을 한 번에 활성화함.
+    "moduleDetection": "force", // 모든 파일을 개별 모듈로 간주하여 전역 변수 중복 에러를 방지함.
+
+    /* 디버깅 및 라이브러리 배포용 설정 */
+    "sourceMap": true, // 브라우저에서 JS 디버깅 시 TS 소스코드를 볼 수 있게 연결 파일을 생성함.
+    "declaration": false, // 타입 정보만 담긴 .d.ts 파일 생성 여부를 설정함.
+    "declarationMap": false, // .d.ts 파일에 대한 소스맵 생성 여부임.
+
+    /* 더 엄격한 타입 검사 (에러 방지) */
+    // 배열 인덱스 접근 시 해당 값이 없을 가능성(undefined)을 강제로 체크하게 함.
+    "noUncheckedIndexedAccess": true,
+    // 선택적 속성(?)에 undefined를 명시적으로 대입하는 것을 막고 아예 생략하게 유도함.
+    "exactOptionalPropertyTypes": true,
+
+    /* 최신 및 권장 설정 */
+    "skipLibCheck": true, // 설치된 외부 라이브러리의 타입 에러는 무시하여 빌드 속도를 높임.
+    "verbatimModuleSyntax": true, // 타입 전용 import/export 문법을 변형 없이 그대로 유지함.
+    "noUncheckedSideEffectImports": true, // CSS 등 부수 효과를 위한 import가 실제 존재하는지 체크함.
+    "isolatedModules": true // 각 파일을 독립적으로 컴파일할 수 있는지 검사하여 도구(Vite 등)와의 호환성을 보장함.
+  }
+}
